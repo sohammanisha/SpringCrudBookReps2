@@ -36,6 +36,6 @@ ai.api.url=https://api.openai.com/v1/chat/completions in src/main/resources/appl
 3) User can edit.
 4) User can delete a book.
 5) User can search a book with either title or author or both.
-6) GlobalExceptionHandler has been added in server.
+6) GlobalExceptionHandler and JSR-303 Bean Validationhas been added in server.
 # Not Supported right now:
 1) As a free user of OPEN AI API, AI Search could not be added and tested properly becuase of limited access. So from the front end, AI Search is not included.
