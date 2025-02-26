@@ -29,7 +29,14 @@ ai.api.url=https://api.openai.com/v1/chat/completions in src/main/resources/appl
 	b) npm run dev
 	c) open the	URL http://localhost:3000/ in any brower, Chrome. 
 
-
+#An overview of design decisions
+1) In Server side:
+	a) Have Controller to control the rounting paths.
+	b) Have Repository for JPA Repoitory for working with in memory database, H2.
+	c) Have BookService to act as a service to user requests like get book details, search, delete.
+2) In Client Side:
+	a) pages/index.js to display first page with existing book (if any) details. Similarly for Book Details for a particular book id, Edit Book are in pages or in its ub-directory.
+	b) utils/api.j calls the backend functions.
 # Expected Outputs:
 1) User can add a valid book.
 2) Book ISBN is unique.
@@ -37,5 +44,7 @@ ai.api.url=https://api.openai.com/v1/chat/completions in src/main/resources/appl
 4) User can delete a book.
 5) User can search a book with either title or author or both.
 6) GlobalExceptionHandler and JSR-303 Bean Validationhas been added in server.
+7) Added integration tests for your API endpoints using Spring Boot’s testing tools (e.g.,MockMvc)
+
 # Not Supported right now:
 1) As a free user of OPEN AI API, AI Search could not be added and tested properly becuase of limited access. So from the front end, AI Search is not included.
