@@ -38,4 +38,4 @@ ai.api.url=https://api.openai.com/v1/chat/completions in src/main/resources/appl
 5) User can search a book with either title or author or both.
 6) GlobalExceptionHandler has been added in server.
 # Not Supported right now:
-1) As a free user of OPEN AI API, AI Search could not added and tested properly becuase of limited access. So from the front end, AI Search is not included.
+1) As a free user of OPEN AI API, AI Search could not be added and tested properly becuase of limited access. So from the front end, AI Search is not included.
