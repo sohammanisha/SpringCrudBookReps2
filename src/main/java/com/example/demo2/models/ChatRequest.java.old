@@ -1,0 +1,24 @@
+package com.example.demo2.models;
+import java.util.* ;
+
+public class ChatRequest {
+
+	public ChatRequest() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	private String model;
+    private List<Message> messages;
+    private int n;
+    private double temperature;
+
+    public ChatRequest(String model, String prompt) {
+        this.model = model;
+        
+        this.messages = new ArrayList<>();
+        this.messages.add(new Message("user", prompt));
+    }
+
+    // getters and setters
+
+}

@@ -1,0 +1,12 @@
+package com.example.demo2.models;
+
+public class Message {
+
+    private String role;
+    private String content;
+    public Message(String role, String prompt) {
+    	this.
+    }
+
+    // constructor, getters and setters
+}

@@ -1,0 +1,44 @@
+import { useEffect, useState } from "react";
+import { getBookById, updateBook } from "../../utils/api";
+import { useRouter } from "next/router";
+
+export default function EditBook() {
+    const [book, setBook] = useState({ bookName: "", author: "" });
+    const router = useRouter();
+    const { id } = router.query;
+
+    useEffect(() => {
+        if (id) {
+            getBookById(id).then((response) => setBook(response.data));
+        }
+    }, [id]);
+
+    const handleChange = (e) => setBook({ ...book, [e.target.name]: e.target.value });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await updateBook(id, book);
+        router.push("/");
+    };
+
+    return (
+        <div className="container mx-auto p-4">
+            <h1 className="text-3xl font-bold mb-4">Edit Book</h1>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <table>
+                    <tr><td><input type="text" name="bookName" value={book.bookName} className="border p-2" onChange={handleChange} required /> </td></tr>
+                    <tr><td><input type="text" name="bookISBN" value={book.bookISBN} className="border p-2" onChange={handleChange} required /></td></tr>
+                    <tr><td><input type="text" name="bookPublisher" value={book.bookPublisher} className="border p-2" onChange={handleChange} required /></td></tr>
+                    <tr><td><input type="text" name="bookType" value={book.bookType} className="border p-2" onChange={handleChange} required /></td></tr>
+
+                    <tr><td><input type="text" name="author" value={book.author} className="border p-2" onChange={handleChange} required /></td></tr>
+                    <tr><td><input type="date" name="date" value={book.date} className="border p-2" onChange={handleChange} required /></td></tr>
+                    <tr><td><input type="text" name="editionNumber" value={book.editionNumber} className="border p-2" onChange={handleChange} required /></td></tr>
+                    <tr><td><input type="text" name="description" value={book.description} className="border p-2" onChange={handleChange} required /></td></tr>
+                    <tr><td><button type="submit" className="bg-blue-500 text-white p-2 rounded">Save</button></td></tr>
+                </table>
+                <button type="submit" className="bg-blue-500 text-white p-2 rounded">Update</button>
+            </form>
+        </div>
+    );
+}
